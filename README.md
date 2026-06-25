@@ -90,9 +90,10 @@ Generates:
 |Permission denied|Linux permissions|chmod|
 
 ## Prompts Required by the Task:
-
-#### Prompt 1 – Repository Analysis
+<details>
+<summary>  <h3>Prompt 1 – Repository Analysis </h3> </summary>
 Analyze the SRAM_SKY130 GitHub repository and summarize its objective, memory specification, directory structure, design flow, required tools, input files, generated outputs, and expected results. Break the project into small research tasks suitable for Week 1 exploration.
+</details>
 #### Prompt 2 – SRAM Architecture
 Explain the architecture of a 1024×32 SRAM (32 Kbits / 4 KB). Describe the function of the memory array, address decoder, wordline driver, bitlines, sense amplifier, write driver, and output driver. Provide a block diagram and explain the data flow during read and write operations.
 #### Prompt 3 – 6T SRAM Cell
