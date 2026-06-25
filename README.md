@@ -136,4 +136,9 @@ Explain the difference between pre-layout and post-layout analysis in SRAM desig
 List common issues encountered during OpenRAM and SKY130 setup. For each issue, explain the possible cause, expected symptoms, and debugging approach.
 </details>
 
+## Conclusion
+This study provided a foundational understanding of SRAM design using OpenRAM and the SKY130 PDK through the analysis of a 1024×32 (4 KB) SRAM repository. The architecture of the SRAM, 6T bitcell operation, compiler flow, and technology integration were explored in a structured manner. AI-assisted workflows were used to simplify complex concepts and generate targeted research tasks for efficient learning. The required inputs, expected outputs, and potential setup challenges were identified and documented. Overall, Week 1 established the theoretical knowledge necessary for future SRAM design, simulation, and implementation activities.
+
+## Week 2
+
 
