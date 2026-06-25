@@ -37,17 +37,17 @@ A compact IEEE-format report was prepared summarizing the SRAM architecture, Ope
 
 ## 6T SRAM Cell
 Include transistor-level discussion.
-### Hold Mode
-WL = 0 /n
-Access transistors OFF
-Cross-coupled inverters store data
-### Read Mode
-BL and BLB precharged
-WL enabled
-Stored value discharges one bitline
-### Write Mode
-Write driver forces BL/BLB
-WL enabled
-Cell state flips
+#### Hold Mode
+* WL = 0
+* Access transistors OFF
+* Cross-coupled inverters store data
+#### Read Mode
+* BL and BLB precharged
+* WL enabled
+* Stored value discharges one bitline
+#### Write Mode
+* Write driver forces BL/BLB
+* WL enabled
+* Cell state flips
 
 
