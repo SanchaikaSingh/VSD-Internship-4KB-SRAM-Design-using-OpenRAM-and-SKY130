@@ -50,4 +50,43 @@ Include transistor-level discussion.
 * WL enabled
 * Cell state flips
 
+## OpenRAM Flow 
+
+<img width="181" height="383" alt="image" src="https://github.com/user-attachments/assets/1ee13a06-ed99-459e-8c4e-1694d3a8e094" />
+
+## SKY130 PDK
+Process Design Kit containing:
+- Design Rules
+- Device Models
+- Layers
+- DRC/LVS decks
+- 
+Why SKY130?
+- Open-source
+- Mature 130nm node
+- Supported by OpenRAM
+
+## OpenRAM Installation 
+Input:
+- Ubuntu
+- Python
+- SKY130 PDK
+
+Generates:
+* .gds
+* .lib
+* .lef
+* .sp
+* .v
+
+## Possible Setup Failures
+
+|Error|Cause|Fix|
+|------|-------|-------|
+|PDK not found| Wrong path|Update environment variables|
+|Python dependency missing|Package absent|Install using pip|
+|OpenRAM crash|Wrong config|Verify parameters|
+|Magic not installed|Layout tool missing|Install Magic|
+|Permission denied|Linux permissions|chmod|
+
 
