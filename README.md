@@ -18,4 +18,19 @@ The internship also investigates how AI tools such as ChatGPT and Codex can supp
 
 
 ## Week 1
+Week 1 focused on researching SRAM design fundamentals and studying the reference OpenRAM-SKY130 repository for a 1024×32 (4 KB) SRAM. The objective was to understand the SRAM architecture, 6T bitcell operation, OpenRAM flow, SKY130 PDK integration, required input files, generated outputs, and common debugging methods. AI tools were used to analyze the repository, break the workflow into smaller learning tasks, and generate prompts for exploring the design flow. 
+Based on this study, 
+A compact IEEE-format report was prepared summarizing the SRAM architecture, OpenRAM-based design methodology, expected outputs, and debugging strategy.
+
+## SRAM Specifications
+|Parameter  |Value  |
+|-----------|-------|
+|Memory Size|1024x32| 
+|Total Bits |32768 bits|
+|Storage    |4KB|
+|Technology |SKY130|
+|Supply Voltage|1.8V|
+|Compiler|OpenRAM|
+|Access Time Target|<2.5ns|
+
 
