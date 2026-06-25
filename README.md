@@ -140,5 +140,6 @@ List common issues encountered during OpenRAM and SKY130 setup. For each issue, 
 This study provided a foundational understanding of SRAM design using OpenRAM and the SKY130 PDK through the analysis of a 1024×32 (4 KB) SRAM repository. The architecture of the SRAM, 6T bitcell operation, compiler flow, and technology integration were explored in a structured manner. AI-assisted workflows were used to simplify complex concepts and generate targeted research tasks for efficient learning. The required inputs, expected outputs, and potential setup challenges were identified and documented. Overall, Week 1 established the theoretical knowledge necessary for future SRAM design, simulation, and implementation activities.
 
 ## Week 2
+Week 2 focuses on understanding the circuit-level operation of a 6T SRAM bitcell using AI-assisted learning and open-source tools. Key topics include hold, read, and write operations, read stability, write margin, and Static Noise Margin (SNM) analysis through butterfly curves. Simulations are performed using Xschem and Ngspice with SKY130 models to verify SRAM behavior. The goal is to build a strong foundation in SRAM circuit design and operation before studying peripheral circuits in Week 3.
 
 
