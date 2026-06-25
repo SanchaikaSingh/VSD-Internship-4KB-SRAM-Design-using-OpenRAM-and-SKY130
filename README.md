@@ -22,7 +22,7 @@ Week 1 focused on researching SRAM design fundamentals and studying the referenc
 Based on this study, 
 A compact IEEE-format report was prepared summarizing the SRAM architecture, OpenRAM-based design methodology, expected outputs, and debugging strategy.
 
-## SRAM Specifications
+### SRAM Specifications
 |Parameter  |Value  |
 |-----------|-------|
 |Memory Size|1024x32| 
@@ -35,7 +35,7 @@ A compact IEEE-format report was prepared summarizing the SRAM architecture, Ope
 
 <img width="593" height="457" alt="image" src="https://github.com/user-attachments/assets/b362129c-e551-48b2-bacd-f84e0bae362a" />
 
-## 6T SRAM Cell
+### 6T SRAM Cell
 Include transistor-level discussion.
 #### Hold Mode
 * WL = 0
@@ -50,11 +50,11 @@ Include transistor-level discussion.
 * WL enabled
 * Cell state flips
 
-## OpenRAM Flow 
+### OpenRAM Flow 
 
 <img width="181" height="383" alt="image" src="https://github.com/user-attachments/assets/1ee13a06-ed99-459e-8c4e-1694d3a8e094" />
 
-## SKY130 PDK
+### SKY130 PDK
 Process Design Kit containing:
 - Design Rules
 - Device Models
@@ -66,7 +66,7 @@ Why SKY130?
 - Mature 130nm node
 - Supported by OpenRAM
 
-## OpenRAM Installation 
+### OpenRAM Installation 
 Input:
 - Ubuntu
 - Python
@@ -79,7 +79,7 @@ Generates:
 * .sp
 * .v
 
-## Possible Setup Failures
+### Possible Setup Failures
 
 |Error|Cause|Fix|
 |------|-------|-------|
@@ -89,7 +89,7 @@ Generates:
 |Magic not installed|Layout tool missing|Install Magic|
 |Permission denied|Linux permissions|chmod|
 
-## Prompts Required by the Task:
+### Prompts Required by the Task:
 <details>
 <summary>  Prompt 1 – Repository Analysis  </summary>
 Analyze the SRAM_SKY130 GitHub repository and summarize its objective, memory specification, directory structure, design flow, required tools, input files, generated outputs, and expected results. Break the project into small research tasks suitable for Week 1 exploration.
@@ -136,7 +136,7 @@ Explain the difference between pre-layout and post-layout analysis in SRAM desig
 List common issues encountered during OpenRAM and SKY130 setup. For each issue, explain the possible cause, expected symptoms, and debugging approach.
 </details>
 
-## Conclusion
+### Conclusion
 This study provided a foundational understanding of SRAM design using OpenRAM and the SKY130 PDK through the analysis of a 1024×32 (4 KB) SRAM repository. The architecture of the SRAM, 6T bitcell operation, compiler flow, and technology integration were explored in a structured manner. AI-assisted workflows were used to simplify complex concepts and generate targeted research tasks for efficient learning. The required inputs, expected outputs, and potential setup challenges were identified and documented. Overall, Week 1 established the theoretical knowledge necessary for future SRAM design, simulation, and implementation activities.
 
 ## Week 2
