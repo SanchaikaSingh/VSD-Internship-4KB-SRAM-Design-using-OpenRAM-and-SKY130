@@ -219,3 +219,16 @@ This combines all the above operations into one continuous, real-world cycle. A 
 spice file: [1bit SRAM.spice](Week2_Simulations/spice_netlists/1bit_sram_full.spice)
 
 waveform: [1bit SRAM.png](Week2_Simulations/waveforms/1bit_sram_full.png)
+
+### Analyzing Stability of 6T SRAM Cell
+It is the primary metric used to quantify the stability of an SRAM bitcell. In simple terms, SNM measures the maximum amount of DC noise (voltage fluctuation) that can be introduced to the internal storage nodes of the cell before it accidentally flips its state and loses its stored data.
+
+The Butterfly Curve:
+The most common way to visualize and measure SNM is by plotting a Butterfly Curve.
+Since a standard 6T SRAM cell consists of two cross-coupled inverters, the butterfly curve is created by superimposing the Voltage Transfer Characteristic (VTC) of one inverter over the inverse VTC of the other.
+
+The resulting graph looks like a butterfly with two distinct "lobes" or "eyes."
+
+Measuring SNM: The SNM is defined mathematically as the side length of the largest square that can be perfectly inscribed inside the smaller of these two lobes.
+
+The Rule of Thumb: A larger inscribed square means a higher SNM, which indicates a more stable, robust SRAM cell.
