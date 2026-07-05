@@ -236,13 +236,28 @@ Measuring SNM: The SNM is defined mathematically as the side length of the large
 The Rule of Thumb: A larger inscribed square means a higher SNM, which indicates a more stable, robust SRAM cell.
 
 <img width="926" height="508" alt="image" src="https://github.com/user-attachments/assets/80b6a5ea-d94b-4418-9822-d2cb68b3fc35" />
----
+
 **1.Hold SNM:**
 This is the stability of the cell when it is idle (the Wordline is off). The cell is simply retaining data. This usually produces the largest, most stable butterfly curve.
 
-spice file:[Hold SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_hold_snm.spice) 
+spice file: [Hold SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_hold_snm.spice) 
 
 <img width="798" height="416" alt="image" src="https://github.com/user-attachments/assets/b4ba5b5f-1af3-4398-a76f-3ce981f2423f" />
 
+**2.Read SNM:**
+This is the stability of the cell during a read operation (the Wordline is on, and the bitlines are precharged). Because the access transistors turn on and act as a voltage divider with the pull-down transistors, the internal node holding a '0' experiences a slight voltage bump. This makes the cell highly vulnerable to flipping. Therefore, Read SNM is almost always the lowest and most critical stability metric in SRAM design.
 
+spice file: [Read SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_read_snm.spice) 
+
+<img width="796" height="410" alt="image" src="https://github.com/user-attachments/assets/c9149498-57d4-4be1-8e14-7ae794ecc4d5" />
+
+
+**3.Write SNM:**
+While technically a measure of instability (how easily you can force the cell to flip), it is evaluated alongside SNM to ensure the cell is weak enough to be written to, but strong enough to retain data during a read.
+
+spice file: [Write SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_write_snm.spice) 
+
+<img width="794" height="412" alt="image" src="https://github.com/user-attachments/assets/18d0ff58-0513-4411-9113-a62e25288a64" />
+
+In a well-designed SRAM cell, you must strike a careful balance: the cell must have a high enough Read SNM so that it doesn't accidentally flip when you read it, but a low enough Write Margin so that you can successfully overwrite it when needed.
 
