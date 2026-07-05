@@ -183,16 +183,16 @@ spice file: [Precharge.spice](Week2_Simulations/spice_netlists/precharge.spice)
 waveform: [Precharge.png](Week2_Simulations/waveforms/precharge.png)
  
 
-4. Write Driver Operation
+#### 4. Write Driver Operation
 The write driver translates system data into powerful bitline signals:
 
-Standby: When the Write Enable (WE) signal is low, the driver does nothing, leaving the bitlines alone so the cell can be read or precharged.
+* Standby: When the Write Enable (WE) signal is low, the driver does nothing, leaving the bitlines alone so the cell can be read or precharged.
+* Activation: When WE goes high, the driver reads the Data In (DIN) signal.
+* Drive to Ground: It uses massive NMOS transistors to violently pull either BL or BLB down to 0V depending on whether DIN is a 1 or a 0.
+* Hold: It holds that line at 0V until the write cycle finishes and WE goes back low.
 
-Activation: When WE goes high, the driver reads the Data In (DIN) signal.
-
-Drive to Ground: It uses massive NMOS transistors to violently pull either BL or BLB down to 0V depending on whether DIN is a 1 or a 0.
-
-Hold: It holds that line at 0V until the write cycle finishes and WE goes back low.
+spice file:  [Write Driver.spice](Week2_Simulations/spice_netlists/write_driver.spice)
+waveform: [Write Driver.png](Week2_Simulations/waveforms/write_driver.png)
 
 5. Sense Amplifier Operation
 This circuit operates exactly at the end of a Read cycle:
