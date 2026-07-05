@@ -155,3 +155,62 @@ This circuit executes the following sequence to read data without destroying it:
 spice file: [SRAM Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
 
 waveform: [SRAM Read.png](Week2_Simulations/spice_netlists/6T_cell_read.png)
+
+#### 2. 6T SRAM WRITE Operation
+This circuit forces the cell to flip to a new state using this sequence:
+
+* Data Setup: The bitlines are driven to full opposite logic levels (e.g., BL = 0V, BLB = VDD to write a '0').
+* Wordline Activation: The WL is driven high, turning on the access transistors.
+* Overpowering the Cell: The bitline that is held at 0V physically overpowers the weak pull-up PMOS transistor inside the cell.
+* State Flip: The internal cross-coupled inverters lose their stability and snap to match the voltage forced by the bitlines.
+* Wordline Deactivation: The WL turns off, storing the newly written data.
+
+spice file: [SRAM Write.spice](Week2_Simulations/spice_netlists/6T_cell_write.spice)
+waveform: [SRAM Write.png](Week2_Simulations/spice_netlists/6T_cell_write.png)
+ 
+
+3. Precharge Operation
+This circuit prepares the bitlines for the next action:
+
+Enable Signal: A Precharge Enable signal (usually active-low) is triggered before any read or write cycle.
+
+Pull-Up: Two PMOS transistors turn on, connecting both BL and BLB directly to VDD.
+
+Equalization: A third PMOS transistor turns on to create a short circuit directly between BL and BLB. This guarantees both lines are at the exact same voltage level, preventing false reads.
+
+Disable: The enable signal turns off just before the Wordline turns on, leaving the lines ready for the memory cell.
+
+4. Write Driver Operation
+The write driver translates system data into powerful bitline signals:
+
+Standby: When the Write Enable (WE) signal is low, the driver does nothing, leaving the bitlines alone so the cell can be read or precharged.
+
+Activation: When WE goes high, the driver reads the Data In (DIN) signal.
+
+Drive to Ground: It uses massive NMOS transistors to violently pull either BL or BLB down to 0V depending on whether DIN is a 1 or a 0.
+
+Hold: It holds that line at 0V until the write cycle finishes and WE goes back low.
+
+5. Sense Amplifier Operation
+This circuit operates exactly at the end of a Read cycle:
+
+Wait State: It stays completely off during precharge and the beginning of a read to save power.
+
+Voltage Differential: It waits for the memory cell to pull one of the bitlines slightly lower than the other (usually a drop of around 100mV).
+
+Enable Signal: The Sense Amplifier Enable (SAE) signal triggers.
+
+Amplification: Its internal cross-coupled inverters instantly detect which bitline is lower and pull that line completely to 0V while pushing the other to VDD.
+
+Output: It outputs a strong, clean digital 1 or 0 to the rest of the computer system.
+
+6. 1-bit Full SRAM Integration Operation
+This combines all the above operations into one continuous, real-world cycle. A typical test operation runs like this:
+
+Precharge Cycle: Precharge circuit turns on -> Equalizes BL/BLB -> Turns off.
+
+Write Cycle: Write Driver activates -> Forces BL to 0V -> WL turns on -> Cell flips to new data -> WL turns off -> Write Driver turns off.
+
+Precharge Cycle: Precharge circuit activates again to erase the leftover voltages on the bitlines from the write cycle.
+
+Read Cycle: WL turns on -> Cell slowly pulls one bitline down -> SAE activates -> Sense Amplifier forces the bitlines to full logic levels -> WL turns off.
