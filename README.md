@@ -192,28 +192,30 @@ The write driver translates system data into powerful bitline signals:
 * Hold: It holds that line at 0V until the write cycle finishes and WE goes back low.
 
 spice file:  [Write Driver.spice](Week2_Simulations/spice_netlists/write_driver.spice)
+
 waveform: [Write Driver.png](Week2_Simulations/waveforms/write_driver.png)
 
-5. Sense Amplifier Operation
+#### 5. Sense Amplifier Operation
 This circuit operates exactly at the end of a Read cycle:
 
-Wait State: It stays completely off during precharge and the beginning of a read to save power.
+* Wait State: It stays completely off during precharge and the beginning of a read to save power.
+* Voltage Differential: It waits for the memory cell to pull one of the bitlines slightly lower than the other (usually a drop of around 100mV).
+* Enable Signal: The Sense Amplifier Enable (SAE) signal triggers.
+* Amplification: Its internal cross-coupled inverters instantly detect which bitline is lower and pull that line completely to 0V while pushing the other to VDD.
+* Output: It outputs a strong, clean digital 1 or 0 to the rest of the computer system.
 
-Voltage Differential: It waits for the memory cell to pull one of the bitlines slightly lower than the other (usually a drop of around 100mV).
+spice file: [Sense Amplifier.spice](Week2_Simulations/spice_netlists/sense_amplifier.spice)
 
-Enable Signal: The Sense Amplifier Enable (SAE) signal triggers.
+waveform: [Sense Amplifier.png](Week2_Simulations/waveforms/sense_amplifier.png)
 
-Amplification: Its internal cross-coupled inverters instantly detect which bitline is lower and pull that line completely to 0V while pushing the other to VDD.
-
-Output: It outputs a strong, clean digital 1 or 0 to the rest of the computer system.
-
-6. 1-bit Full SRAM Integration Operation
+#### 6. 1-bit Full SRAM Integration Operation
 This combines all the above operations into one continuous, real-world cycle. A typical test operation runs like this:
 
-Precharge Cycle: Precharge circuit turns on -> Equalizes BL/BLB -> Turns off.
+* Precharge Cycle: Precharge circuit turns on -> Equalizes BL/BLB -> Turns off.
+* Write Cycle: Write Driver activates -> Forces BL to 0V -> WL turns on -> Cell flips to new data -> WL turns off -> Write Driver turns off.
+* Precharge Cycle: Precharge circuit activates again to erase the leftover voltages on the bitlines from the write cycle.
+* Read Cycle: WL turns on -> Cell slowly pulls one bitline down -> SAE activates -> Sense Amplifier forces the bitlines to full logic levels -> WL turns off.
 
-Write Cycle: Write Driver activates -> Forces BL to 0V -> WL turns on -> Cell flips to new data -> WL turns off -> Write Driver turns off.
+spice file: [1bit SRAM.spice](Week2_Simulations/spice_netlists/1bit_sram_full.spice)
 
-Precharge Cycle: Precharge circuit activates again to erase the leftover voltages on the bitlines from the write cycle.
-
-Read Cycle: WL turns on -> Cell slowly pulls one bitline down -> SAE activates -> Sense Amplifier forces the bitlines to full logic levels -> WL turns off.
+waveform: [1bit SRAM.png](Week2_Simulations/waveforms/1bit_sram_full.png)
