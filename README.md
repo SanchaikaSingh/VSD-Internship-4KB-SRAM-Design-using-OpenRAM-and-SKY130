@@ -221,6 +221,8 @@ spice file: [1bit SRAM.spice](Week2_Simulations/spice_netlists/1bit_sram_full.sp
 waveform: [1bit SRAM.png](Week2_Simulations/waveforms/1bit_sram_full.png)
 
 ### Analyzing Stability of 6T SRAM Cell
+**Static Noise Margin**
+
 It is the primary metric used to quantify the stability of an SRAM bitcell. In simple terms, SNM measures the maximum amount of DC noise (voltage fluctuation) that can be introduced to the internal storage nodes of the cell before it accidentally flips its state and loses its stored data.
 
 **The Butterfly Curve:**
@@ -232,3 +234,10 @@ The resulting graph looks like a butterfly with two distinct "lobes" or "eyes."
 Measuring SNM: The SNM is defined mathematically as the side length of the largest square that can be perfectly inscribed inside the smaller of these two lobes.
 
 The Rule of Thumb: A larger inscribed square means a higher SNM, which indicates a more stable, robust SRAM cell.
+
+<img width="926" height="508" alt="image" src="https://github.com/user-attachments/assets/80b6a5ea-d94b-4418-9822-d2cb68b3fc35" />
+
+**1.Hold SNM:**
+This is the stability of the cell when it is idle (the Wordline is off). The cell is simply retaining data. This usually produces the largest, most stable butterfly curve.
+
+
