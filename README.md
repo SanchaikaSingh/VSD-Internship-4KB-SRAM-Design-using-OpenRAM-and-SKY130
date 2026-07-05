@@ -261,3 +261,20 @@ spice file: [Write SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_write_snm
 
 In a well-designed SRAM cell, you must strike a careful balance: the cell must have a high enough Read SNM so that it doesn't accidentally flip when you read it, but a low enough Write Margin so that you can successfully overwrite it when needed.
 
+**Read Disturb:** Read Stability
+
+Read Disturb happens when the process of reading an SRAM cell accidentally destroys or flips the data stored inside it.
+* The Mechanism: Before a read cycle, both bitlines are precharged high (to VDD). When the wordline turns on, the access transistor connects the highly charged bitline to the cell's internal node that is holding a '0' (0V).
+* The Voltage Bump: The access transistor and the cell's internal pull-down transistor act together like a voltage divider. This causes the internal '0' node to experience a temporary voltage "bump" above 0V.
+* The Failure: If that voltage bump is too high, the cross-coupled inverters inside the cell will register it as a logic '1'. The internal feedback loop will activate, flipping the cell and permanently corrupting the stored data.
+* How to fix it: To prevent Read Disturb, designers must make the pull-down transistors significantly stronger than the access transistors.
+
+
+**Write Margin:** Writeability
+
+Write Margin measures how easily an external circuit can force the SRAM cell to change its state and store new data.
+* The Mechanism: To write a new value, the write driver forces one bitline to 0V. When the wordline turns on, this bitline must physically overpower the cell's internal pull-up PMOS transistor, which is actively trying to hold the node at VDD.
+* The Metric: The Write Margin is essentially the maximum bitline voltage that can still successfully force the cell to flip. If a cell requires the bitline to be driven extremely close to absolute 0V before it flips, it has a poor (tight) Write Margin.
+* The Failure: If the Write Margin is too low, manufacturing variations or slight voltage drops in the circuit will prevent the write driver from flipping the cell, resulting in a failed write cycle.
+* How to fix it: To improve Write Margin, designers must make the access transistors strong enough to overpower the internal pull-up transistors.
+
