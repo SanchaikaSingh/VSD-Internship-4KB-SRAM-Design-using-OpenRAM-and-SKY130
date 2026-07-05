@@ -146,11 +146,11 @@ Week 2 focuses on understanding the circuit-level operation of a 6T SRAM bitcell
 #### 1. 6T SRAM READ Operation
 This circuit executes the following sequence to read data without destroying it:
 
-Precharge: The bitlines (BL and BLB) are both charged to the supply voltage (VDD) and left floating.
-Wordline Activation: The Wordline (WL) is driven high, turning on the two access transistors (Pass-Gates).
-Cell Discharge: The internal node of the cell that holds a '0' acts as a path to ground. It slowly drains the voltage from its connected bitline, while the other bitline stays high.
-Differential Creation: A small voltage difference is created between BL and BLB.
-Wordline Deactivation: The WL is driven low, locking the data safely back inside the cell.
+* Precharge: The bitlines (BL and BLB) are both charged to the supply voltage (VDD) and left floating.
+* Wordline Activation: The Wordline (WL) is driven high, turning on the two access transistors (Pass-Gates).
+* Cell Discharge: The internal node of the cell that holds a '0' acts as a path to ground. It slowly drains the voltage from its connected bitline, while the other bitline stays high.
+* Differential Creation: A small voltage difference is created between BL and BLB.
+* Wordline Deactivation: The WL is driven low, locking the data safely back inside the cell.
 
-spice file:[
+spice file:[SRAM_Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
 waveform:
