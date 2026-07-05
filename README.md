@@ -154,7 +154,7 @@ This circuit executes the following sequence to read data without destroying it:
 
 spice file: [SRAM Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
 
-waveform: [SRAM Read.png](Week2_Simulations/spice_netlists/6T_cell_read.png)
+waveform: [SRAM Read.png](Week2_Simulations/waveforms/6T_cell_read.png)
 
 #### 2. 6T SRAM WRITE Operation
 This circuit forces the cell to flip to a new state using this sequence:
@@ -167,7 +167,7 @@ This circuit forces the cell to flip to a new state using this sequence:
 
 spice file: [SRAM Write.spice](Week2_Simulations/spice_netlists/6T_cell_write.spice)
 
-waveform: [SRAM Write.png](Week2_Simulations/spice_netlists/6T_cell_write.png)
+waveform: [SRAM Write.png](Week2_Simulations/waveforms/6T_cell_write.png)
  
 
 #### 3. Precharge Operation
@@ -179,7 +179,8 @@ This circuit prepares the bitlines for the next action:
 * Disable: The enable signal turns off just before the Wordline turns on, leaving the lines ready for the memory cell.
 
 spice file: [Precharge.spice](Week2_Simulations/spice_netlists/precharge.spice)
-waveform: [Precharge.png](Week2_Simulations/spice_netlists/precharge.png)
+
+waveform: [Precharge.png](Week2_Simulations/waveforms/precharge.png)
  
 
 4. Write Driver Operation
