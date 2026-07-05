@@ -142,6 +142,10 @@ This study provided a foundational understanding of SRAM design using OpenRAM an
 ## Week 2 & 3
 Week 2 focuses on understanding the circuit-level operation of a 6T SRAM bitcell using AI-assisted learning and open-source tools. Key topics include hold, read, and write operations, read stability, write margin, and Static Noise Margin (SNM) analysis through butterfly curves. Simulations are performed using Xschem and Ngspice with SKY130 models to verify SRAM behavior. The goal is to build a strong foundation in SRAM circuit design and operation before studying peripheral circuits in Week 3.
 
+### SRAM 6T Bit Cell
+
+<img width="408" height="288" alt="image" src="https://github.com/user-attachments/assets/7267284d-1bb5-448e-baa1-371172135dcf" />
+
 ### Simulations
 #### 1. 6T SRAM READ Operation
 This circuit executes the following sequence to read data without destroying it:
@@ -269,6 +273,7 @@ Read Disturb happens when the process of reading an SRAM cell accidentally destr
 * The Failure: If that voltage bump is too high, the cross-coupled inverters inside the cell will register it as a logic '1'. The internal feedback loop will activate, flipping the cell and permanently corrupting the stored data.
 * How to fix it: To prevent Read Disturb, designers must make the pull-down transistors significantly stronger than the access transistors.
 
+<img width="1197" height="624" alt="image" src="https://github.com/user-attachments/assets/dde4ac1f-329a-4e86-a00b-ae983cc8a358" />
 
 **Write Margin:** Writeability
 
@@ -278,3 +283,4 @@ Write Margin measures how easily an external circuit can force the SRAM cell to 
 * The Failure: If the Write Margin is too low, manufacturing variations or slight voltage drops in the circuit will prevent the write driver from flipping the cell, resulting in a failed write cycle.
 * How to fix it: To improve Write Margin, designers must make the access transistors strong enough to overpower the internal pull-up transistors.
 
+<img width="979" height="506" alt="image" src="https://github.com/user-attachments/assets/cf5a6514-56f5-45d5-9c09-b106dc1b5131" />
