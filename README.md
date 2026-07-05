@@ -10,7 +10,7 @@ The internship also investigates how AI tools such as ChatGPT and Codex can supp
 
 ## Table of Content
 * [Week 1](#week-1)
-* [Week 2 & 3](#week-2&3)
+* [Week 2 & 3](#week-2--3)
 
 
 
