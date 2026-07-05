@@ -142,4 +142,15 @@ This study provided a foundational understanding of SRAM design using OpenRAM an
 ## Week 2
 Week 2 focuses on understanding the circuit-level operation of a 6T SRAM bitcell using AI-assisted learning and open-source tools. Key topics include hold, read, and write operations, read stability, write margin, and Static Noise Margin (SNM) analysis through butterfly curves. Simulations are performed using Xschem and Ngspice with SKY130 models to verify SRAM behavior. The goal is to build a strong foundation in SRAM circuit design and operation before studying peripheral circuits in Week 3.
 
+### Simulations
+#### 1. 6T SRAM READ Operation
+This circuit executes the following sequence to read data without destroying it:
 
+Precharge: The bitlines (BL and BLB) are both charged to the supply voltage (VDD) and left floating.
+Wordline Activation: The Wordline (WL) is driven high, turning on the two access transistors (Pass-Gates).
+Cell Discharge: The internal node of the cell that holds a '0' acts as a path to ground. It slowly drains the voltage from its connected bitline, while the other bitline stays high.
+Differential Creation: A small voltage difference is created between BL and BLB.
+Wordline Deactivation: The WL is driven low, locking the data safely back inside the cell.
+
+spice file:[
+waveform:
