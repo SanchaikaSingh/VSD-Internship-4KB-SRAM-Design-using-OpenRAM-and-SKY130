@@ -147,6 +147,16 @@ Week 2 focuses on understanding the circuit-level operation of a 6T SRAM bitcell
 <img width="408" height="288" alt="image" src="https://github.com/user-attachments/assets/7267284d-1bb5-448e-baa1-371172135dcf" />
 
 Description
+ * **WL:** Wordline
+ * **BL:** Bitline
+ * **BL':** Bitline Bar
+ * **Q:** Storage Node
+ * **Q':** Complementary Storage Node
+ * **P1, P2:** Pull-Up PMOS Transistors
+ * **N1, N3:** Pull-Down NMOS Transistors
+ * **N2, N4:** Access NMOS Transistors
+ * **Vdd:** Supply Voltage
+ * **Ground Symbol:** Ground
 
 ### Simulations
 #### 1. 6T SRAM READ Operation
