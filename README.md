@@ -152,5 +152,6 @@ This circuit executes the following sequence to read data without destroying it:
 * Differential Creation: A small voltage difference is created between BL and BLB.
 * Wordline Deactivation: The WL is driven low, locking the data safely back inside the cell.
 
-spice file:[SRAM_Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
+spice file: [SRAM Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
+
 waveform:
