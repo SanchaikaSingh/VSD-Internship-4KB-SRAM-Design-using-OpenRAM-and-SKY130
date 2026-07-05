@@ -166,6 +166,7 @@ This circuit forces the cell to flip to a new state using this sequence:
 * Wordline Deactivation: The WL turns off, storing the newly written data.
 
 spice file: [SRAM Write.spice](Week2_Simulations/spice_netlists/6T_cell_write.spice)
+
 waveform: [SRAM Write.png](Week2_Simulations/spice_netlists/6T_cell_write.png)
  
 
