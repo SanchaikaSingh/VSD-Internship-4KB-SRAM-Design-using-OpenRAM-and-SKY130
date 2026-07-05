@@ -236,8 +236,13 @@ Measuring SNM: The SNM is defined mathematically as the side length of the large
 The Rule of Thumb: A larger inscribed square means a higher SNM, which indicates a more stable, robust SRAM cell.
 
 <img width="926" height="508" alt="image" src="https://github.com/user-attachments/assets/80b6a5ea-d94b-4418-9822-d2cb68b3fc35" />
-
+---
 **1.Hold SNM:**
 This is the stability of the cell when it is idle (the Wordline is off). The cell is simply retaining data. This usually produces the largest, most stable butterfly curve.
+
+spice file:[Hold SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_hold_snm.spice) 
+
+<img width="798" height="416" alt="image" src="https://github.com/user-attachments/assets/b4ba5b5f-1af3-4398-a76f-3ce981f2423f" />
+
 
 
