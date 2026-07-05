@@ -170,16 +170,17 @@ spice file: [SRAM Write.spice](Week2_Simulations/spice_netlists/6T_cell_write.sp
 waveform: [SRAM Write.png](Week2_Simulations/spice_netlists/6T_cell_write.png)
  
 
-3. Precharge Operation
+#### 3. Precharge Operation
 This circuit prepares the bitlines for the next action:
 
-Enable Signal: A Precharge Enable signal (usually active-low) is triggered before any read or write cycle.
+* Enable Signal: A Precharge Enable signal (usually active-low) is triggered before any read or write cycle.
+* Pull-Up: Two PMOS transistors turn on, connecting both BL and BLB directly to VDD.
+* Equalization: A third PMOS transistor turns on to create a short circuit directly between BL and BLB. This guarantees both lines are at the exact same voltage level, preventing false reads.
+* Disable: The enable signal turns off just before the Wordline turns on, leaving the lines ready for the memory cell.
 
-Pull-Up: Two PMOS transistors turn on, connecting both BL and BLB directly to VDD.
-
-Equalization: A third PMOS transistor turns on to create a short circuit directly between BL and BLB. This guarantees both lines are at the exact same voltage level, preventing false reads.
-
-Disable: The enable signal turns off just before the Wordline turns on, leaving the lines ready for the memory cell.
+spice file: [Precharge.spice](Week2_Simulations/spice_netlists/precharge.spice)
+waveform: [Precharge.png](Week2_Simulations/spice_netlists/precharge.png)
+ 
 
 4. Write Driver Operation
 The write driver translates system data into powerful bitline signals:
