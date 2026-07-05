@@ -154,4 +154,4 @@ This circuit executes the following sequence to read data without destroying it:
 
 spice file: [SRAM Read.spice](Week2_Simulations/spice_netlists/6T_cell_read.spice)
 
-waveform:
+waveform: [SRAM Read.png](Week2_Simulations/spice_netlists/
