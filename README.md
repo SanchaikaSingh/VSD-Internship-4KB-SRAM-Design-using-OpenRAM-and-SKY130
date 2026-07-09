@@ -267,7 +267,6 @@ spice file: [Read SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_read_snm.s
 
 <img width="796" height="410" alt="image" src="https://github.com/user-attachments/assets/c9149498-57d4-4be1-8e14-7ae794ecc4d5" />
 
-
 **3.Write SNM:**
 While technically a measure of instability (how easily you can force the cell to flip), it is evaluated alongside SNM to ensure the cell is weak enough to be written to, but strong enough to retain data during a read.
 
@@ -277,6 +276,7 @@ spice file: [Write SNM](Week2_Simulations/mandatory_netlists/SRAM_Cell_write_snm
 
 In a well-designed SRAM cell, you must strike a careful balance: the cell must have a high enough Read SNM so that it doesn't accidentally flip when you read it, but a low enough Write Margin so that you can successfully overwrite it when needed.
 
+---
 **Read Disturb:** Read Stability
 
 Read Disturb happens when the process of reading an SRAM cell accidentally destroys or flips the data stored inside it.
