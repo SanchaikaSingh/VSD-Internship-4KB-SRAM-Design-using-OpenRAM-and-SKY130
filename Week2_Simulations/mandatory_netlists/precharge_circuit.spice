@@ -1,19 +1,34 @@
-Pre-Charge Circuit
+*Precharge Circuit
+* Precharge Circuit Simulation
+*----------------------------------------------------------
 
-.lib "./libs/models/sky130.lib.spice" tt
+.model PMOS_GEN PMOS (LEVEL=1 VTO=-0.7 KP=40u LAMBDA=0.01)
 
-XM1 bl pre_charge vdd vdd sky130_fd_pr__pfet_01v8 w=0.84 l=0.21
-XM2 blbar pre_charge vdd vdd sky130_fd_pr__pfet_01v8 w=0.84 l=0.21
+* Power Supply
+VDD     VDD     0     DC 1.8
 
-V1 vdd gnd dc 1.8
-V2 pre_charge gnd pulse 0 1.8 0 60ps 60ps 5ns 10ns
+* Precharge Control Signal (Active Low)
+VPRE    PRE_b   0     PULSE(1.8 0 1n 0.1n 0.1n 3n 10n)
 
-.tran 1n 50n
+* PMOS Precharge Transistors
+M1 BL   PRE_b   VDD   VDD   PMOS_GEN W=0.84u L=0.15u
+M2 BLB  PRE_b   VDD   VDD   PMOS_GEN W=0.84u L=0.15u
+
+* PMOS Equalizer
+M3 BL   PRE_b   BLB   VDD   PMOS_GEN W=0.84u L=0.15u
+
+* Bitline Capacitances
+CBL     BL      0     20f
+CBLB    BLB     0     20f
+
+* Initial Conditions
+.ic V(BL)=0 V(BLB)=0.5
+
+* Analysis
 .control
+tran 10p 10n
 run
-plot V(pre_charge)+6 V(bl)+2 V(blbar)
+plot v(BL) v(BLB) v(PRE_b)
 .endc
+
 .end
-
-
-

@@ -1,0 +1,39 @@
+* AI-Assisted-4KB-SRAM-SKY130 Write Margin 
+* Technology: SKY130 | VDD = 1.8V
+
+.lib "/home/sanchaika/sram_project/open_pdks/sky130/sky130A/libs.tech/combined/sky130.lib.spice" tt
+
+* --- 6T Bitcell Subcircuit ---
+.subckt sram_6t wl bl blb vdd gnd q qb
+XM3 q  qb vdd vdd sky130_fd_pr__pfet_01v8 W=0.42 L=0.15 nf=1
+XM4 qb q  vdd vdd sky130_fd_pr__pfet_01v8 W=0.42 L=0.15 nf=1
+XM1 q  qb gnd gnd sky130_fd_pr__nfet_01v8 W=0.84 L=0.15 nf=1
+XM2 qb q  gnd gnd sky130_fd_pr__nfet_01v8 W=0.84 L=0.15 nf=1
+XM5 q  wl bl  gnd sky130_fd_pr__nfet_01v8 W=0.42 L=0.15 nf=1
+XM6 qb wl blb gnd sky130_fd_pr__nfet_01v8 W=0.42 L=0.15 nf=1
+.ends
+
+X1 WL BL BLB VDD GND Q QB sram_6t
+Vdd VDD GND DC 1.8
+
+* --- Stimulus ---
+* Both Bitlines held high
+Vbl BL GND DC 1.8
+Vblb BLB GND DC 1.8
+
+* Using PWL to create exactly TWO pulses (at 2ns and 10ns) to avoid the 18ns pulse
+Vwl WL GND PWL(0 0 1.99n 0 2n 1.8 2.1n 1.8 2.11n 0 9.99n 0 10n 1.8 10.1n 1.8 10.11n 0 20n 0)
+
+* --- Initial Condition: Q must start at 0V so we can see its recovery bump ---
+.ic V(Q)=0 V(QB)=1.8
+
+* --- Analysis (0 to 20ns) ---
+.tran 10p 20n uic
+
+.control
+run
+set xbrushwidth=2
+* Plotting in the exact order of the repo legend
+plot v(wl) v(q) v(bl) v(qb) title "Write Margin Analysis"
+.endc
+.end
