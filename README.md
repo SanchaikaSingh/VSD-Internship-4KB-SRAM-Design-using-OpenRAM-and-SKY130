@@ -285,7 +285,7 @@ Read Disturb happens when the process of reading an SRAM cell accidentally destr
 * The Failure: If that voltage bump is too high, the cross-coupled inverters inside the cell will register it as a logic '1'. The internal feedback loop will activate, flipping the cell and permanently corrupting the stored data.
 * How to fix it: To prevent Read Disturb, designers must make the pull-down transistors significantly stronger than the access transistors.
 
-<img width="1197" height="624" alt="image" src="https://github.com/user-attachments/assets/dde4ac1f-329a-4e86-a00b-ae983cc8a358" />
+<img width="1208" height="619" alt="image" src="https://github.com/user-attachments/assets/42b78b63-24f6-4263-a936-b0b8be00e82d" />
 
 **Write Margin:** Writeability
 
@@ -295,4 +295,20 @@ Write Margin measures how easily an external circuit can force the SRAM cell to 
 * The Failure: If the Write Margin is too low, manufacturing variations or slight voltage drops in the circuit will prevent the write driver from flipping the cell, resulting in a failed write cycle.
 * How to fix it: To improve Write Margin, designers must make the access transistors strong enough to overpower the internal pull-up transistors.
 
-<img width="979" height="506" alt="image" src="https://github.com/user-attachments/assets/cf5a6514-56f5-45d5-9c09-b106dc1b5131" />
+<img width="1197" height="618" alt="image" src="https://github.com/user-attachments/assets/57b22774-cfab-4034-aae5-1ca73cb9e976" />
+
+**Precharge Circuit:**
+
+The precharge circuit is one of the peripheral circuits of an SRAM. Its job is to prepare the bitlines (BL and BLB) before every read operation.
+
+Why is a precharge circuit needed?
+Before reading data from an SRAM cell, both bitlines must start at the same voltage (VDD). If they start at different voltages, the sense amplifier may produce incorrect results or the read operation may become slower.
+
+The precharge circuit:
+* Charges BL to VDD (1.8 V).
+* Charges BLB to VDD (1.8 V).
+
+Equalizes BL and BLB so both have exactly the same voltage.
+
+<img width="1195" height="617" alt="image" src="https://github.com/user-attachments/assets/f6de9b42-899e-4204-a2fa-df9ce974127d" />
+
