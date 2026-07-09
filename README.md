@@ -236,6 +236,7 @@ spice file: [1bit SRAM.spice](Week2_Simulations/spice_netlists/1bit_sram_full.sp
 
 waveform: [1bit SRAM.png](Week2_Simulations/waveforms/1bit_sram_full.png)
 
+---
 ### Analyzing Stability of 6T SRAM Cell
 **Static Noise Margin**
 
