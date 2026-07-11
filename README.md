@@ -298,6 +298,8 @@ Write Margin measures how easily an external circuit can force the SRAM cell to 
 * The Failure: If the Write Margin is too low, manufacturing variations or slight voltage drops in the circuit will prevent the write driver from flipping the cell, resulting in a failed write cycle.
 * How to fix it: To improve Write Margin, designers must make the access transistors strong enough to overpower the internal pull-up transistors.
 
+spice file: [write_margin.spice](Week3/write_margin.spice)
+
 <img width="1197" height="618" alt="image" src="https://github.com/user-attachments/assets/57b22774-cfab-4034-aae5-1ca73cb9e976" />
 
 **Precharge Circuit:**
@@ -312,6 +314,8 @@ The precharge circuit:
 * Charges BLB to VDD (1.8 V).
 
 Equalizes BL and BLB so both have exactly the same voltage.
+
+spice file: [precharge_circuit.spice](Week3/Precharge_Circuit.spice)
 
 <img width="1195" height="617" alt="image" src="https://github.com/user-attachments/assets/f6de9b42-899e-4204-a2fa-df9ce974127d" />
 
