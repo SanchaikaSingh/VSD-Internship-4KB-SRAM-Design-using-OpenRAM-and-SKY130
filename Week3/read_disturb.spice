@@ -1,0 +1,38 @@
+Read Disturb
+* 6T SRAM - READ DISTURB
+* Q holds '0' (worst case). WL pulses for a read access.
+* Check: bump on Q must stay below trip point (~VDD/2)
+* Spec: VDD = 1.8V
+* ==========================================================
+
+.model NMOS_GEN NMOS (LEVEL=1 VTO=0.7 KP=120u LAMBDA=0.01)
+.model PMOS_GEN PMOS (LEVEL=1 VTO=-0.7 KP=40u LAMBDA=0.01)
+
+VDD  VDD 0 DC 1.8
+VBL  BL  0 DC 1.8
+VBLB BLB 0 DC 1.8
+VWL  WL  0 PULSE(0 1.8 1n 0.05n 0.05n 5n 10n)
+
+* Cross-coupled inverter pair
+M1 Q   QB VDD VDD PMOS_GEN W=0.42u L=0.15u
+M2 Q   QB 0   0   NMOS_GEN W=0.64u L=0.15u
+M3 QB  Q  VDD VDD PMOS_GEN W=0.42u L=0.15u
+M4 QB  Q  0   0   NMOS_GEN W=0.64u L=0.15u
+
+* Pass gates
+M5 BL  WL Q  0    NMOS_GEN W=0.42u L=0.15u
+M6 BLB WL QB 0    NMOS_GEN W=0.42u L=0.15u
+
+.ic V(Q)=0 V(QB)=1.8
+
+.control
+tran 5p 15n
+plot v(Q) v(WL)
+
+meas tran vbump MAX v(Q) FROM=1n TO=6n
+
+let rd_margin = 0.9 - vbump
+print vbump
+print rd_margin
+.endc
+.end

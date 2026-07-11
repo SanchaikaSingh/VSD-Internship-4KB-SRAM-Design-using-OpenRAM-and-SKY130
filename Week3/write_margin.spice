@@ -1,0 +1,25 @@
+*Write Margin
+*force BL/BLB opposite to stored value
+.model NMOS_GEN NMOS (LEVEL=1 VTO=0.7 KP=120u LAMBDA=0.01)
+.model PMOS_GEN PMOS (LEVEL=1 VTO=-0.7 KP=40u LAMBDA=0.01)
+
+VDD VDD 0 DC 1.8
+VWL  WL  0 PULSE(0 1.8 1n 0.05n 0.05n 8n 12n)
+VBL  BL  0 DC 0
+VBLB BLB 0 DC 1.8
+
+M1 Q   QB VDD VDD PMOS_GEN W=0.42u L=0.15u
+M2 Q   QB 0   0   NMOS_GEN W=0.64u L=0.15u
+M3 QB  Q  VDD VDD PMOS_GEN W=0.42u L=0.15u
+M4 QB  Q  0   0   NMOS_GEN W=0.64u L=0.15u
+M5 BL  WL Q  0    NMOS_GEN W=0.42u L=0.15u
+M6 BLB WL QB 0    NMOS_GEN W=0.42u L=0.15u
+
+.ic V(Q)=1.8 V(QB)=0
+
+.control
+tran 5p 12n
+plot v(Q) v(QB) v(WL)
+meas tran t_flip WHEN v(Q)=0.9 RISE=0 FALL=1
+.endc
+.end
