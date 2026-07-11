@@ -164,29 +164,29 @@ Description
 
 **SRAM Peripheral Circuits:**
 1. Row Decoder:
--Decodes the input address and activates exactly one wordline (WL).
--Ensures only the selected SRAM row is accessed during read or write.
+- Decodes the input address and activates exactly one wordline (WL).
+- Ensures only the selected SRAM row is accessed during read or write.
 2. Column Decoder:
--Selects the required bitline pair (BL/BLB) corresponding to the addressed column.
--Routes the selected column to the sense amplifier or write driver.
+- Selects the required bitline pair (BL/BLB) corresponding to the addressed column.
+- Routes the selected column to the sense amplifier or write driver.
 3. Precharge Circuit:
-Precharges BL and BLB to VDD before every read operation.
-Provides identical initial conditions for fast and reliable sensing.
+- Precharges BL and BLB to VDD before every read operation.
+- Provides identical initial conditions for fast and reliable sensing.
 4. Sense Amplifier:
-Detects the small voltage difference between BL and BLB during a read.
-Amplifies it quickly to a full logic '0' or '1'.
+- Detects the small voltage difference between BL and BLB during a read.
+- Amplifies it quickly to a full logic '0' or '1'.
 5. Write Driver:
-Forces the desired data onto BL and BLB during write operations.
-Overwrites the previous data stored in the selected SRAM cell.
+- Forces the desired data onto BL and BLB during write operations.
+- Overwrites the previous data stored in the selected SRAM cell.
 6. Wordline Driver:
-Buffers and drives the selected wordline with sufficient strength.
-Ensures fast activation of the access transistors across the memory row.
+- Buffers and drives the selected wordline with sufficient strength.
+- Ensures fast activation of the access transistors across the memory row.
 7. Bitlines (BL & BLB):
-Differential signal lines used to transfer data between the SRAM cell and peripheral circuits.
-Support both read and write operations with improved noise immunity.
+- Differential signal lines used to transfer data between the SRAM cell and peripheral circuits.
+- Support both read and write operations with improved noise immunity.
 8. Control Logic:
-Generates timing signals such as WL, Precharge Enable (PRE), Sense Enable (SAE), and Write Enable (WE).
-Coordinates the sequence of read, write, and standby operations for correct SRAM functionality.
+- Generates timing signals such as WL, Precharge Enable (PRE), Sense Enable (SAE), and Write Enable (WE).
+- Coordinates the sequence of read, write, and standby operations for correct SRAM functionality.
 
 ### Simulations
 #### 1. 6T SRAM READ Operation
