@@ -365,3 +365,21 @@ spice file: [precharge_circuit.spice](Week3/Precharge_Circuit.spice)
 </details>
 
 ## Week 4
+
+In Week 4, the focus was on documenting and demonstrating the complete AI-assisted SRAM circuit design workflow. The project consolidated all SPICE netlists, simulation results, waveforms, prompts, GitHub documentation, and observations into a reproducible repository.
+
+The workflow included generating SRAM circuit blocks using AI prompts, verifying the generated netlists, debugging simulation errors, running ngspice simulations, and organizing the repository with proper documentation. A demonstration video was prepared to show the complete process, including AI prompt generation, command execution, simulations, waveform analysis, debugging, and final verification.
+
+### Deliverables
+- Complete GitHub documentation
+- AI prompts used during development
+- Verified SPICE netlists
+- Simulation waveforms and screenshots
+- Debugging steps and fixes
+- Reproducible workflow with execution commands
+- Demonstration video showcasing the complete design flow
+
+### Outcome
+Successfully documented an end-to-end AI-assisted workflow for designing, simulating, verifying, and reproducing key SRAM circuit building blocks using OpenRAM concepts, SKY130-compatible SPICE models, and ngspice.
+
+### Video Link
