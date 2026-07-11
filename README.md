@@ -163,28 +163,28 @@ Description
 <img width="1324" height="589" alt="Screenshot 2026-07-08 200036" src="https://github.com/user-attachments/assets/1c371cdf-f1e4-410e-ace2-d576574735a9" />
 
 **SRAM Peripheral Circuits:**
-1. Row Decoder
-Decodes the input address and activates exactly one wordline (WL).
-Ensures only the selected SRAM row is accessed during read or write.
-2. Column Decoder
-Selects the required bitline pair (BL/BLB) corresponding to the addressed column.
-Routes the selected column to the sense amplifier or write driver.
-3. Precharge Circuit
+1. Row Decoder:
+-Decodes the input address and activates exactly one wordline (WL).
+-Ensures only the selected SRAM row is accessed during read or write.
+2. Column Decoder:
+-Selects the required bitline pair (BL/BLB) corresponding to the addressed column.
+-Routes the selected column to the sense amplifier or write driver.
+3. Precharge Circuit:
 Precharges BL and BLB to VDD before every read operation.
 Provides identical initial conditions for fast and reliable sensing.
-4. Sense Amplifier
+4. Sense Amplifier:
 Detects the small voltage difference between BL and BLB during a read.
 Amplifies it quickly to a full logic '0' or '1'.
-5. Write Driver
+5. Write Driver:
 Forces the desired data onto BL and BLB during write operations.
 Overwrites the previous data stored in the selected SRAM cell.
-6. Wordline Driver
+6. Wordline Driver:
 Buffers and drives the selected wordline with sufficient strength.
 Ensures fast activation of the access transistors across the memory row.
-7. Bitlines (BL & BLB)
+7. Bitlines (BL & BLB):
 Differential signal lines used to transfer data between the SRAM cell and peripheral circuits.
 Support both read and write operations with improved noise immunity.
-8. Control Logic
+8. Control Logic:
 Generates timing signals such as WL, Precharge Enable (PRE), Sense Enable (SAE), and Write Enable (WE).
 Coordinates the sequence of read, write, and standby operations for correct SRAM functionality.
 
