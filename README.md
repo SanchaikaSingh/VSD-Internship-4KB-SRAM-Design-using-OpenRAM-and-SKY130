@@ -286,6 +286,8 @@ Read Disturb happens when the process of reading an SRAM cell accidentally destr
 * The Failure: If that voltage bump is too high, the cross-coupled inverters inside the cell will register it as a logic '1'. The internal feedback loop will activate, flipping the cell and permanently corrupting the stored data.
 * How to fix it: To prevent Read Disturb, designers must make the pull-down transistors significantly stronger than the access transistors.
 
+spice file: [read_disturb.spice](Week3/read_disturb.spice)
+
 <img width="1208" height="619" alt="image" src="https://github.com/user-attachments/assets/42b78b63-24f6-4263-a936-b0b8be00e82d" />
 
 **Write Margin:** Writeability
