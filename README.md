@@ -11,7 +11,7 @@ The internship also investigates how AI tools such as ChatGPT and Codex can supp
 ## Table of Content
 * [Week 1](#week-1)
 * [Week 2 & 3](#week-2--3)
-
+* [Week 4](#week-4)
 
 
 
@@ -158,6 +158,36 @@ Description
  * **Vdd:** Supply Voltage
  * **Ground Symbol:** Ground
 
+**6T SRAM Schematic**
+
+<img width="1324" height="589" alt="Screenshot 2026-07-08 200036" src="https://github.com/user-attachments/assets/1c371cdf-f1e4-410e-ace2-d576574735a9" />
+
+**SRAM Peripheral Circuits:**
+1. Row Decoder
+Decodes the input address and activates exactly one wordline (WL).
+Ensures only the selected SRAM row is accessed during read or write.
+2. Column Decoder
+Selects the required bitline pair (BL/BLB) corresponding to the addressed column.
+Routes the selected column to the sense amplifier or write driver.
+3. Precharge Circuit
+Precharges BL and BLB to VDD before every read operation.
+Provides identical initial conditions for fast and reliable sensing.
+4. Sense Amplifier
+Detects the small voltage difference between BL and BLB during a read.
+Amplifies it quickly to a full logic '0' or '1'.
+5. Write Driver
+Forces the desired data onto BL and BLB during write operations.
+Overwrites the previous data stored in the selected SRAM cell.
+6. Wordline Driver
+Buffers and drives the selected wordline with sufficient strength.
+Ensures fast activation of the access transistors across the memory row.
+7. Bitlines (BL & BLB)
+Differential signal lines used to transfer data between the SRAM cell and peripheral circuits.
+Support both read and write operations with improved noise immunity.
+8. Control Logic
+Generates timing signals such as WL, Precharge Enable (PRE), Sense Enable (SAE), and Write Enable (WE).
+Coordinates the sequence of read, write, and standby operations for correct SRAM functionality.
+
 ### Simulations
 #### 1. 6T SRAM READ Operation
 This circuit executes the following sequence to read data without destroying it:
@@ -290,6 +320,11 @@ spice file: [read_disturb.spice](Week3/read_disturb.spice)
 
 <img width="1208" height="619" alt="image" src="https://github.com/user-attachments/assets/42b78b63-24f6-4263-a936-b0b8be00e82d" />
 
+<details>
+ <summary> Prompt: Read Disturb Netlist </summary>
+ Act as an SRAM design engineer. Generate a simulation-ready NGSPICE netlist for Read Disturb analysis of a standard 6T SRAM cell using generic Level-1 NMOS and PMOS models. Use a 1.8 V supply, precharge both BL and BLB to 1.8 V, apply a pulsed wordline for the read operation, initialize the cell with Q = 0 and QB = 1.8 V (worst-case read), perform transient analysis (tran 5p 15n), plot Q and WL, measure the maximum voltage bump on Q (vbump), calculate the read disturb margin (0.9 - vbump), and return only the raw NGSPICE netlist without any explanation.
+</details>
+
 **Write Margin:** Writeability
 
 Write Margin measures how easily an external circuit can force the SRAM cell to change its state and store new data.
@@ -301,6 +336,11 @@ Write Margin measures how easily an external circuit can force the SRAM cell to 
 spice file: [write_margin.spice](Week3/write_margin.spice)
 
 <img width="1197" height="618" alt="image" src="https://github.com/user-attachments/assets/57b22774-cfab-4034-aae5-1ca73cb9e976" />
+
+<details>
+<summary> Prompt: Write Margin Netlist </summary> 
+ Act as an SRAM design engineer. Generate a simulation-ready NGSPICE netlist for Write Margin analysis of a standard 6T SRAM cell using generic Level-1 NMOS and PMOS models. Use a 1.8 V supply, a pulsed wordline, and force BL = 0 V and BLB = 1.8 V (opposite to the stored data). Build the complete 6T cell with cross-coupled inverters and access transistors, initialize Q = 1.8 V and QB = 0 V, perform transient analysis (tran 5p 12n), plot Q, QB, and WL, measure the write-flip time (t_flip), and return only the raw NGSPICE netlist without any explanation.
+</details>
 
 **Precharge Circuit:**
 
@@ -319,3 +359,9 @@ spice file: [precharge_circuit.spice](Week3/Precharge_Circuit.spice)
 
 <img width="1195" height="617" alt="image" src="https://github.com/user-attachments/assets/f6de9b42-899e-4204-a2fa-df9ce974127d" />
 
+<details>
+ <summary> Prompt: Precharge Circuit Netlist </summary>
+ Act as an SRAM design engineer. Generate a simulation-ready NGSPICE netlist for a 6T SRAM Precharge Circuit using generic Level-1 PMOS models. Use a 1.8 V supply, an active-low precharge pulse (PRE_b), two PMOS precharge transistors for BL and BLB, one PMOS equalizer, 20 fF bitline capacitors, appropriate initial conditions, transient analysis (tran 10p 10n), plot BL, BLB, and PRE_b, and return only the raw NGSPICE netlist without any explanation.
+</details>
+
+## Week 4
