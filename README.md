@@ -380,7 +380,7 @@ The initial SPICE netlists were generated with AI assistance. However, some issu
 
 - A few required SPICE simulation directives, such as `.control`, `.tran`, `.endc`, and `.end`, were missing or incomplete. These directives were added to ensure successful simulation.
 
-#### Key Learning
+#### Key Learnings:
 
 Although AI helped generate the initial SPICE netlists, manual verification was essential. Debugging the syntax, validating circuit connectivity, correcting simulation commands, and verifying file organization ensured that the final netlists were accurate, functional, and ready for simulation.
 
