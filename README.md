@@ -403,3 +403,4 @@ The workflow included generating SRAM circuit blocks using AI prompts, verifying
 Successfully documented an end-to-end AI-assisted workflow for designing, simulating, verifying, and reproducing key SRAM circuit building blocks using OpenRAM concepts, SKY130-compatible SPICE models, and ngspice.
 
 ### Video Link
+https://drive.google.com/file/d/1LtxtmwaFOg3t5r5o-ODpKCQPsnxeH_XV/view?usp=drivesdk
