@@ -364,6 +364,26 @@ spice file: [precharge_circuit.spice](Week3/Precharge_Circuit.spice)
  Act as an SRAM design engineer. Generate a simulation-ready NGSPICE netlist for a 6T SRAM Precharge Circuit using generic Level-1 PMOS models. Use a 1.8 V supply, an active-low precharge pulse (PRE_b), two PMOS precharge transistors for BL and BLB, one PMOS equalizer, 20 fF bitline capacitors, appropriate initial conditions, transient analysis (tran 10p 10n), plot BL, BLB, and PRE_b, and return only the raw NGSPICE netlist without any explanation.
 </details>
 
+### Errors Encountered and Solutions:
+
+The initial SPICE netlists were generated with AI assistance. However, some issues were identified during simulation and verification. Each issue was analyzed manually, debugged, and corrected before the final netlists were committed to the repository.
+
+- Some descriptive text was not marked as a SPICE comment, causing ngspice to interpret it as a circuit statement. This was corrected by adding `*` before all descriptive lines.
+
+- One of the netlists loaded successfully but did not execute the simulation because the required `run` command was missing from the `.control` block. The simulation control section was updated accordingly.
+
+- A few netlists contained incorrect or incomplete transistor/node connections, which resulted in simulation and connectivity errors. These connections were verified and corrected manually.
+
+- An undriven (floating) node was detected during netlist generation. The circuit was inspected, the missing connection was identified, and the node was properly connected.
+
+- Some simulation files were initially copied using incorrect file paths or filenames. The correct locations were identified using Linux terminal commands, and the files were moved to the appropriate repository directory.
+
+- A few required SPICE simulation directives, such as `.control`, `.tran`, `.endc`, and `.end`, were missing or incomplete. These directives were added to ensure successful simulation.
+
+#### Key Learning
+
+Although AI helped generate the initial SPICE netlists, manual verification was essential. Debugging the syntax, validating circuit connectivity, correcting simulation commands, and verifying file organization ensured that the final netlists were accurate, functional, and ready for simulation.
+
 ## Week 4
 
 In Week 4, the focus was on documenting and demonstrating the complete AI-assisted SRAM circuit design workflow. The project consolidated all SPICE netlists, simulation results, waveforms, prompts, GitHub documentation, and observations into a reproducible repository.
